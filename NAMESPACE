@@ -58,7 +58,14 @@ export(
        "panel.hexgrid","panel.hexloess",
 
        ## utilities
-       "hexlegendGrob")
+       "hexlegendGrob"
+
+       ### log-axis stuff taken from hydrosanity is NOT exported
+  #     "logAxisComponents", "grid.yaxis.log", "grid.xaxis.log",
+  #     "lattice.y.sqrt", "lattice.x.sqrt", "lattice.y.prettylog",
+  #     "lattice.x.prettylog"
+
+       )
        
 
 ## S3 methods for lattice-type functions

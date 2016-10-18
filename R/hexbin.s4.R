@@ -205,6 +205,7 @@ gplot.hexbin <-
 	     border = NULL, density = NULL, pen = NULL,
 	     colramp = function(n) LinGray(n, beg = 90, end = 15),
 	     xlab = NULL, ylab = NULL, main = "", newpage = TRUE,
+             logaxis = FALSE,
 	     type = c("p", "l", "n"), xaxt = c("s", "n"), yaxt = c("s", "n"),
 	     clip="on", verbose = getOption("verbose"), leg.title="Counts")
 {
@@ -243,8 +244,20 @@ gplot.hexbin <-
     hv.ob <- hexViewport(x, offset = unit(legend,"inches"))
     pushViewport(hv.ob@hexVp.off)
     grid.rect()
-    if(xaxt != "n") grid.xaxis()
-    if(yaxt != "n") grid.yaxis()
+    if(xaxt != "n") {
+        if(logaxis) {
+            grid.xaxis.log()
+        } else {
+            grid.xaxis()
+        }
+    }
+    if(yaxt != "n") {
+        if (logaxis) {
+            grid.yaxis.log()
+        } else {
+            grid.yaxis()
+        }
+    }
     ## xlab, ylab, main :
     if(is.null(xlab)) xlab <- x@xlab
     if(is.null(ylab)) ylab <- x@ylab
