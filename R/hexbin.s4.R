@@ -206,7 +206,7 @@ gplot.hexbin <-
 	     colramp = function(n) LinGray(n, beg = 90, end = 15),
 	     xlab = NULL, ylab = NULL, main = "", newpage = TRUE,
 	     type = c("p", "l", "n"), xaxt = c("s", "n"), yaxt = c("s", "n"),
-	     clip="on", verbose = getOption("verbose"))
+	     clip="on", verbose = getOption("verbose"), leg.title="Counts")
 {
     if(!is(x,"hexbin"))
 	stop("first argument must be a hexbin object")
@@ -309,7 +309,7 @@ gplot.hexbin <-
 			   mincnt = mincnt, maxcnt = maxcnt,
                            trans = trans, inv = inv, colorcut = colorcut,
 			   density = density, border = border, pen = pen,
-			   colramp = colramp)
+			   colramp = colramp, leg.title=leg.title)
 	    popViewport()
 	}
     }

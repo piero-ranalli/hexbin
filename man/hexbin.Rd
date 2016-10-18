@@ -16,7 +16,8 @@
 \usage{
 hexbin(x, y, xbins = 30, shape = 1,
        xbnds = range(x), ybnds = range(y),
-       xlab = NULL, ylab = NULL, IDs = FALSE)
+       xlab = NULL, ylab = NULL, IDs = FALSE,
+       leg.title="Counts")
 }
 \arguments{
   \item{x, y}{vectors giving the coordinates of the bivariate data
@@ -31,6 +32,7 @@ hexbin(x, y, xbins = 30, shape = 1,
     \code{x} and \code{y}.  If \code{NULL}, sensible defaults are used.}
   \item{IDs}{logical indicating if the individual cell \dQuote{IDs}
     should be returned, see also below.}
+  \item{leg.title}{string containing the legend title (default: "Counts")}
 }
 \value{
   an S4 object of class \code{"hexbin"}.

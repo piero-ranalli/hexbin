@@ -11,6 +11,7 @@ plotMAhex <- function (MA, array = 1, xlab = "A", ylab = "M",
                        colramp = function(n){ LinGray(n,beg = 90,end = 15) },
                        newpage = TRUE, type = c("p", "l", "n"),
                        xaxt = c("s", "n"), yaxt = c("s", "n"),
+		       leg.title="Counts",
                        verbose = getOption("verbose"))
 {
   if (!requireNamespace("marray", quietly = TRUE))
@@ -177,7 +178,7 @@ plotMAhex <- function (MA, array = 1, xlab = "A", ylab = "M",
                        trans=trans, inv=inv,
                        colorcut = colorcut,
                        density = density, border = border, pen = pen,
-                       colramp = colramp)
+                       colramp = colramp, leg.title=leg.title)
 
             #if (is.list(pch))
             #    legend(x = xlim[1], y = ylim[2], legend = values,

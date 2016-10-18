@@ -15,7 +15,8 @@ plotMAhex(MA, array = 1, xlab = "A", ylab = "M",
           colramp = function(n) { LinGray(n, beg = 90, end = 15) },
           newpage = TRUE, type = c("p", "l", "n"),
           xaxt = c("s", "n"), yaxt = c("s", "n"),
-          verbose = getOption("verbose"))
+	  leg.title = "Counts",
+	  verbose = getOption("verbose"))
 }
 \arguments{
   \item{MA}{an \code{RGList}, \code{MAList} or \code{MArrayLM} object,
@@ -69,6 +70,7 @@ plotMAhex(MA, array = 1, xlab = "A", ylab = "M",
   \item{type, xaxt, yaxt}{strings to be used (when set to \code{"n"}) for
     suppressing the plotting of hexagon symbols, or the x- or y-axis,
     respectively.}
+  \item{leg.title}{string containing the legend title (default: "Counts")}
   \item{verbose}{logical indicating if some diagnostic output should happen.}
 }
 

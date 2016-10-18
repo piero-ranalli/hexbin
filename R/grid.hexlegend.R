@@ -4,7 +4,7 @@ function(legend, ysize, lcex, inner,
 	 minarea = 0.05, maxarea = 0.8, mincnt = 1, maxcnt, trans = NULL,
 	 inv = NULL, colorcut, density = NULL, border = NULL, pen = NULL,
 	 colramp = function(n) { LinGray(n,beg = 90,end = 15) },
-         leg.unit="native")
+         leg.unit="native", leg.title="Counts")
 {
     ## the formal arg matching should happen
     style <- match.arg(style, eval(formals(grid.hexagons)[["style"]]))
@@ -50,7 +50,7 @@ function(legend, ysize, lcex, inner,
 	       }
 	       grid.text(as.character(bnds[n]), textx, (n - 0.5) * spacing,
                          default.units=leg.unit, gp=gpar(cex = lcex))
-	       grid.text("Counts", legend/2, (n + 1.5) * spacing,
+	       grid.text(leg.title, legend/2, (n + 1.5) * spacing,
                          default.units=leg.unit, gp=gpar(cex = 1.7 * lcex))
 	   },
 
