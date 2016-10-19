@@ -245,14 +245,14 @@ gplot.hexbin <-
     pushViewport(hv.ob@hexVp.off)
     grid.rect()
     if(xaxt != "n") {
-        if(logaxis) {
+        if(logaxis==T | logaxis=="x" | logaxis=="xy") {
             grid.xaxis.log()
         } else {
             grid.xaxis()
         }
     }
     if(yaxt != "n") {
-        if (logaxis) {
+        if (logaxis==T | logaxis=="y" | logaxis=="xy") {
             grid.yaxis.log()
         } else {
             grid.yaxis()
