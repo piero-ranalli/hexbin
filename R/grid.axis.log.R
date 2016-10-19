@@ -84,8 +84,11 @@ grid.yaxis.log <- function(logLim=as.numeric(convertY(unit(c(0,1), "npc"), "nati
 	if (label==F) { axisStuff$label <- F }
 	tmp <- yaxisGrob(at=axisStuff$at, label=axisStuff$label, name=name, ...)
 	if (label) {
-		tmp <- editGrob(tmp, gPath("labels"), check.overlap=F)
-	}
+            tmp <- editGrob(tmp, gPath("labels"), check.overlap=F)
+        }
+        ## put ticks inside, see here
+        ## http://stackoverflow.com/questions/28949001/mirroring-axis-ticks-in-ggplot2
+        tmp$children[[2]]$x1 = tmp$children[[2]]$x1 - unit(-0.5, "cm")
 	if (draw) { grid.draw(tmp) }
 	tmp
 }
@@ -95,8 +98,10 @@ grid.xaxis.log <- function(logLim=as.numeric(convertX(unit(c(0,1), "npc"), "nati
 	if (label==F) { axisStuff$label <- F }
 	tmp <- xaxisGrob(at=axisStuff$at, label=axisStuff$label, name=name, ...)
 	if (label) {
-		tmp <- editGrob(tmp, gPath("labels"), check.overlap=F)
-	}
+            tmp <- editGrob(tmp, gPath("labels"), check.overlap=F)
+        }
+        ## put ticks inside
+        tmp$children[[2]]$y1 = tmp$children[[2]]$y1 - unit(-0.5, "cm")
 	if (draw) { grid.draw(tmp) }
 	tmp
 }
